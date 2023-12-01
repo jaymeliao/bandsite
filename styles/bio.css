@@ -1,0 +1,140 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Avenir", serif;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+    line-height: 3.75rem;
+    font-weight: 700;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+  }
+}
+
+h3 {
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+p {
+  font-size: 0.8125rem;
+  line-height: 0.8125rem;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    font-weight: 400;
+  }
+}
+
+footer {
+  font-size: 0.8125rem;
+  line-height: 0.8125rem;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  footer {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    font-weight: 400;
+  }
+}
+
+li,
+a,
+button {
+  font-size: 0.625rem;
+  line-height: 0.625rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  li,
+  a,
+  button {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    font-weight: 700;
+  }
+}
+
+/* =================================================================*/
+.header {
+  background-color: #323232;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    margin-left: 36;
+    margin-right: 36;
+    gap: auto;
+    flex-direction: row;
+  }
+  .header > * {
+    box-sizing: border-box;
+    width: 24;
+  }
+}
+@media (min-width: 1280px) {
+  .header {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 63;
+  }
+  .header > * {
+    box-sizing: border-box;
+    width: 24;
+  }
+}/*# sourceMappingURL=bio.css.map */
