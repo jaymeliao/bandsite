@@ -31,9 +31,14 @@
   }
 }
 
-@mixin headlineadding($top, $bottom) {
+@mixin vPadding($top, $bottom) {
   padding-top: $top;
   padding-bottom: $bottom;
+}
+
+@mixin hPadding($top, $bottom) {
+  padding-left: $top;
+  padding-right: $bottom;
 }
 
 * {
@@ -43,7 +48,7 @@
 
 html,
 body {
-  font-size: $font-size-base * 1px * 1.5;
+  font-size: $font-size-base * 1px * 1.2;
   font-family: "Avenir", serif;
 }
 
@@ -55,9 +60,9 @@ h1 {
 }
 
 h2 {
-  @include text-styles(24, 32, 400);
+  @include text-styles(24, 32, 600);
   @include tablet {
-    @include text-styles(36, 44, 400);
+    @include text-styles(36, 44, 600);
   }
 }
 
@@ -82,12 +87,12 @@ footer {
   }
 }
 
-li,
 a,
 button {
-  @include text-styles(10, 20, 700);
+  text-decoration: none;
+  @include text-styles(13, 18, 400);
   @include tablet {
-    @include text-styles(12, 20, 700);
+    @include text-styles(14, 22, 400);
   }
 }
 
@@ -99,6 +104,7 @@ button {
   display: flex;
   flex-direction: column;
   text-align: center;
+  @include vPadding(0.8rem, 0.8rem);
   @include tablet {
     flex-direction: row;
   }
@@ -118,9 +124,10 @@ button {
 .banner {
   background-image: url("../assets/Images/hero-bio.jpg");
   width: 100%;
-  height: 320px;
+  height: 240px;
   background-size: cover;
   .overlay-container {
+    @include hPadding(1rem, 1rem);
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
@@ -129,4 +136,52 @@ button {
   &__title {
     color: $BandSite-White;
   }
+}
+
+.about {
+  @include hPadding(1rem, 1rem);
+  @include vPadding(1.5rem, 1rem);
+  &__title {
+    margin-bottom: 1rem;
+  }
+  .musican-profile {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+  }
+  .musican-quote,
+  .musican-name {
+    font-weight: 600;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .band-title{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .band-description{
+    flex-direction: column;
+    &__paraph{
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.photo-gallery {
+  @include hPadding(1rem, 1rem);
+  @include vPadding(1.5rem, 1rem);
+  background-color: $BandSite-Alabaster;
+  &__title {
+    margin-bottom: 1rem;
+  }
+  .collection {
+    display: flex;
+    flex-direction: column;
+    &__picture{
+      margin-bottom: 1rem;
+    }
+  }
+  
+  
 }

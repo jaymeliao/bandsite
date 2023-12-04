@@ -23,7 +23,7 @@
 
 html,
 body {
-  font-size: 24px;
+  font-size: 19.2px;
   font-family: "Avenir", serif;
 }
 
@@ -43,13 +43,13 @@ h1 {
 h2 {
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   h2 {
     font-size: 2.25rem;
     line-height: 2.75rem;
-    font-weight: 400;
+    font-weight: 600;
   }
 }
 
@@ -92,20 +92,19 @@ footer {
   }
 }
 
-li,
 a,
 button {
-  font-size: 0.625rem;
-  line-height: 1.25rem;
-  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
 }
 @media (min-width: 768px) {
-  li,
   a,
   button {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
   }
 }
 
@@ -116,6 +115,8 @@ button {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 }
 @media (min-width: 768px) {
   .header {
@@ -136,10 +137,12 @@ button {
 .banner {
   background-image: url("../assets/Images/hero-bio.jpg");
   width: 100%;
-  height: 320px;
+  height: 240px;
   background-size: cover;
 }
 .banner .overlay-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
@@ -147,4 +150,54 @@ button {
 }
 .banner__title {
   color: #fff;
+}
+
+.about {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+.about__title {
+  margin-bottom: 1rem;
+}
+.about .musican-profile {
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+}
+.about .musican-quote,
+.about .musican-name {
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.about .band-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.about .band-description {
+  flex-direction: column;
+}
+.about .band-description__paraph {
+  margin-bottom: 1rem;
+}
+
+.photo-gallery {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  background-color: #fafafa;
+}
+.photo-gallery__title {
+  margin-bottom: 1rem;
+}
+.photo-gallery .collection {
+  display: flex;
+  flex-direction: column;
+}
+.photo-gallery .collection__picture {
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=bio.css.map */
