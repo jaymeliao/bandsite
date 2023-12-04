@@ -107,25 +107,45 @@ button {
   text-align: center;
   @include vPadding(0.8rem, 0rem);
   @include tablet {
+    @include vPadding(0rem, 0rem);
     flex-direction: row;
   }
   &__title {
     font-weight: 400;
+    @include tablet {
+      @include text-styles(24, 68, 400);
+
+      @include hPadding(2rem, 2rem);
+    }
   }
   .nav {
     &__list {
       display: flex;
       list-style-type: none;
+      height: 100%;
+      @include tablet {
+        gap: 2rem;
+        align-items: center;
+        @include hPadding(2rem, 2rem);
+      }
     }
     &__item {
       width: 50%;
-      padding-bottom: 0.5rem;
-      a{
+      box-sizing: border-box;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      height: 100%;
+      border-bottom: 2px solid transparent;
+      @include tablet {
+        display: flex;
+        align-items: center;
+      }
+      a {
         text-decoration: none;
         color: white;
       }
-      &:hover{
-        border-bottom: 1px solid white;
+      &:hover {
+        border-color: white;
       }
     }
   }
@@ -135,6 +155,9 @@ button {
   width: 100%;
   height: 240px;
   background-size: cover;
+  @include tablet{
+    height: 600px;
+  }
   .overlay-container {
     @include hPadding(1rem, 1rem);
     height: 100%;
@@ -147,37 +170,61 @@ button {
   }
 }
 
-#about {
+.about {
   @include hPadding(1rem, 1rem);
   @include vPadding(1.5rem, 1rem);
+  @include tablet {
+    @include hPadding(6rem, 6rem);
+  }
   &__title {
     margin-bottom: 1rem;
+    @include tablet {
+      margin-bottom: 1.5rem;
+    }
   }
   .musican-profile {
-    height: 200px;
+    height: 50vw;
+    max-height: 600px;
     width: 100%;
     background-size: cover;
+    @include tablet {
+      @include hPadding(2rem, 2rem);
+    }
   }
   .musican-quote,
   .musican-name {
+    @include tablet {
+      @include hPadding(2rem, 2rem);
+    }
     font-weight: 600;
     margin-top: 0.8rem;
     margin-bottom: 0.5rem;
   }
-  .band-title{
+  .band-title {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: 600;
+    @include tablet {
+      @include hPadding(2rem, 2rem);
+    }
   }
-  .band-description{
+  .band-description {
+    display: flex;
     flex-direction: column;
-    &__paraph{
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap:1rem;
+      @include hPadding(2rem, 2rem);
+    }
+    &__paraph {
       margin-bottom: 1rem;
+      text-align: left;
     }
   }
 }
 
-#photo-gallery {
+.photo-gallery {
   @include hPadding(1rem, 1rem);
   @include vPadding(1.5rem, 1rem);
   background-color: $BandSite-Alabaster;
@@ -187,61 +234,99 @@ button {
   .collection {
     display: flex;
     flex-direction: column;
-    &__picture{
+    &__picture {
       margin-bottom: 1rem;
     }
-  }
-  
-  
-}
-
-.footer{
-  background-color: $BandSite-Black;
-  color:white;
-  @include hPadding(1rem, 1rem);
-  @include vPadding(1.5rem, 1rem);
-  &__title {
-    margin-bottom: 1rem;
-  }
-  .social-media{
-   
-    display: flex;
-    justify-content: flex-start;
-   
-    &__link{
-      width: 35px;
-      height: 35px;;
-      padding: 0rem 1.5rem 1.5rem 0rem;
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-       
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap:5%;
+    }
+    img{
+      @include tablet {
+        width: 30%;
+        margin-bottom:4%;
       }
     }
   }
-  .site-name1{
+  @include tablet {
+    @include hPadding(6rem, 6rem);
+  }
+}
+
+.footer {
+  h3 {
+    @include tablet {
+      font-size: 1rem;
+    }  
+  }
+  background-color: $BandSite-Black;
+  color: white;
+  @include hPadding(1rem, 1rem);
+  @include vPadding(1.5rem, 1rem);
+  @include tablet {
+    @include hPadding(6rem, 6rem);
+    @include vPadding(3rem, 3rem);
+  }
+  &__row{
+    @include tablet {
+      display: flex;
+      align-items: baseline;
+      gap:2rem;
+    }
+  }
+  &__title {
+    margin-bottom: 1rem;
+  }
+  .social-media {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    &__link {
+      padding-bottom: 1rem;
+      img {
+        width: 35px;
+        height: 35px;
+        object-fit: fill;
+      }
+    }
+  }
+  .site-name1 {
     display: none;
+    @include tablet {
+     display: inline;
+     flex:1;
+     text-align: right;
+    }
   }
   .team {
     display: flex;
     flex-direction: column;
-    gap:1rem;
+    gap: 1rem;
     padding-bottom: 3rem;
-    &__address{
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap:1rem;
+    }
+    &__address {
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
-    &__email{
+    &__email {
       a {
         text-decoration: none;
         color: white;
       }
     }
   }
-  .site-name2{
+  .site-name2 {
     font-weight: 400;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    @include tablet {
+      display: none;
+    }
   }
 }
