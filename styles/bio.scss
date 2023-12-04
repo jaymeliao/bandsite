@@ -1,25 +1,6 @@
 @use "./partials/variables" as *;
 @use "./partials/fonts" as *;
 
-// @font-face {
-//   font-family: "Avenir";
-//   src: url("../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype");
-//   font-weight: 700;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "Avenir";
-//   src: url("../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype");
-//   font-style: normal;
-//   font-weight: 400;
-// }
-// @font-face {
-//   font-family: "Avenir";
-//   src: url("../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype");
-//   font-weight: 500;
-//   font-style: normal;
-// }
-
 @mixin desktop {
   @media (min-width: $Desktop-breakpoint) {
     @content;
@@ -34,56 +15,56 @@
 
 @mixin text-styles($font-size, $line-height, $font-weight) {
   font-size: calc($font-size / $font-size-base) * 1rem;
-  line-height: calc($font-size / $font-size-base)* 1rem;
+  line-height: calc($line-height / $font-size-base) * 1rem;
   font-weight: $font-weight;
 }
 
-@mixin layout-grid($margin-x, $gutter, $content-size){
-   display: flex;
-   margin-left: $margin-x;
-   margin-right: $margin-x;
-   gap:$gutter;
+@mixin layout-grid($margin-x, $gutter, $content-size) {
+  display: flex;
+  margin-left: $margin-x;
+  margin-right: $margin-x;
+  gap: $gutter;
 
-   > * {
+  > * {
     box-sizing: border-box;
     width: $content-size;
-   }
+  }
 }
 
-@mixin headlineadding($top, $bottom){
+@mixin headlineadding($top, $bottom) {
   padding-top: $top;
   padding-bottom: $bottom;
 }
-
 
 * {
   padding: 0;
   margin: 0;
 }
 
+html,
 body {
-  font-size: $font-size-base * 1px;
+  font-size: $font-size-base * 1px * 1.5;
   font-family: "Avenir", serif;
 }
 
 h1 {
-  @include text-styles(24, 32, 700);
+  @include text-styles(24, 32, 600);
   @include tablet {
-    @include text-styles(60, 68, 700);
+    @include text-styles(60, 68, 600);
   }
 }
 
 h2 {
-  @include text-styles(24, 32, 700);
+  @include text-styles(24, 32, 400);
   @include tablet {
-    @include text-styles(36, 44, 700);
+    @include text-styles(36, 44, 400);
   }
 }
 
 h3 {
-  @include text-styles(14, 22, 600);
+  @include text-styles(14, 22, 400);
   @include tablet {
-    @include text-styles(24, 32, 600);
+    @include text-styles(24, 32, 400);
   }
 }
 
@@ -110,25 +91,42 @@ button {
   }
 }
 
-
-
 /* =================================================================*/
-
-
 
 .header {
   background-color: $BandSite-Black;
+  color: white;
+  display: flex;
   flex-direction: column;
+  text-align: center;
   @include tablet {
-    @include layout-grid(36,auto,24);
     flex-direction: row;
   }
-  @include desktop {
-    @include layout-grid(auto,63,24);
+  &__title {
+    font-weight: 400;
   }
   .nav {
-
+    &__list {
+      display: flex;
+      list-style-type: none;
+    }
+    &__item {
+      width: 50%;
+    }
   }
 }
-
-
+.banner {
+  background-image: url("../assets/Images/hero-bio.jpg");
+  width: 100%;
+  height: 320px;
+  background-size: cover;
+  .overlay-container {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    color: $BandSite-White;
+  }
+}
