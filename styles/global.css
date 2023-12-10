@@ -96,6 +96,7 @@ footer {
 a,
 button {
   text-decoration: none;
+  color: white;
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
@@ -116,7 +117,7 @@ button {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-top: 0.8rem;
+  padding-top: 1rem;
   padding-bottom: 0rem;
   padding-left: 0rem;
   padding-right: 0rem;
@@ -131,18 +132,20 @@ button {
   }
 }
 .header .logo {
-  width: 5vw;
-  min-width: 120px;
-  min-height: 20px;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+@media (min-width: 768px) {
+  .header .logo {
+    min-width: 120px;
+    min-height: 20px;
+    width: 6vw;
+  }
 }
 .header .nav__list {
   display: flex;
-  gap: 1rem;
   list-style-type: none;
-  height: 100%;
 }
 @media (min-width: 768px) {
   .header .nav__list {
@@ -153,26 +156,16 @@ button {
   }
 }
 .header .nav__item {
-  width: 50%;
-  box-sizing: border-box;
+  flex: 1;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  height: 100%;
   border-bottom: 2px solid transparent;
 }
 @media (min-width: 768px) {
   .header .nav__item {
-    display: flex;
-    align-items: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-}
-.header .nav__item a {
-  text-decoration: none;
-  color: white;
-  transition: font-weight 0.5s ease;
-  text-align: center;
 }
 .header .nav__item a:hover {
   font-weight: 700;
@@ -196,8 +189,8 @@ button {
 }
 @media (min-width: 768px) {
   .footer {
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding-left: 6vw;
+    padding-right: 6vw;
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
@@ -206,7 +199,18 @@ button {
   .footer__row {
     display: flex;
     align-items: baseline;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 3vw;
+  }
+}
+.footer__row .logo1 {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer__row .logo1 {
+    display: flex;
+    width: 150px;
+    margin-left: auto;
   }
 }
 .footer__title {
@@ -226,16 +230,6 @@ button {
   -o-object-fit: fill;
      object-fit: fill;
 }
-.footer .site-name1 {
-  display: none;
-}
-@media (min-width: 768px) {
-  .footer .site-name1 {
-    display: inline;
-    flex: 1;
-    text-align: right;
-  }
-}
 .footer .team {
   display: flex;
   flex-direction: column;
@@ -253,17 +247,7 @@ button {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.footer .team__email a {
-  text-decoration: none;
-  color: white;
-}
-.footer .site-name2 {
-  font-weight: 400;
+.footer .logo2 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-@media (min-width: 768px) {
-  .footer .site-name2 {
-    display: none;
-  }
 }/*# sourceMappingURL=global.css.map */

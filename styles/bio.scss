@@ -12,7 +12,7 @@
     height: 600px;
   }
   .overlay-container {
-    @include hPadding(1rem, 1rem);
+    @include hPadding(2rem, 2rem);
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
@@ -27,7 +27,7 @@
   @include hPadding(1rem, 1rem);
   @include vPadding(1.5rem, 1rem);
   @include tablet {
-    @include hPadding(6rem, 6rem);
+    @include hPadding(6vw, 6vw);
   }
   &__title {
     margin-bottom: 1rem;
@@ -105,7 +105,7 @@
     }
   }
   @include tablet {
-    @include hPadding(6rem, 6rem);
+    @include hPadding(6vw, 6vw);
   }
 }
 
