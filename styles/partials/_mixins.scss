@@ -1,0 +1,43 @@
+@use "./variables" as *;
+
+
+
+@mixin desktop {
+    @media (min-width: $Desktop-breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: $Tablet-breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin text-styles($font-size, $line-height, $font-weight) {
+    font-size: calc($font-size / $font-size-base) * 1rem;
+    line-height: calc($line-height / $font-size-base) * 1rem;
+    font-weight: $font-weight;
+  }
+  
+  @mixin layout-grid($margin-x, $gutter, $content-size) {
+    display: flex;
+    margin-left: $margin-x;
+    margin-right: $margin-x;
+    gap: $gutter;
+  
+    > * {
+      box-sizing: border-box;
+      width: $content-size;
+    }
+  }
+  
+  @mixin vPadding($top, $bottom) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+  }
+  
+  @mixin hPadding($top, $bottom) {
+    padding-left: $top;
+    padding-right: $bottom;
+  }
