@@ -28,37 +28,29 @@
   }
 }
 .banner .overlay-container {
-  padding-left: 2rem;
+  padding-left: 1rem;
   padding-right: 2rem;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
 }
+@media (min-width: 768px) {
+  .banner .overlay-container {
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
+}
 .banner__title {
   color: #fff;
 }
+@media (min-width: 768px) {
+  .banner__title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 
-.about {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-}
-@media (min-width: 768px) {
-  .about {
-    padding-left: 6vw;
-    padding-right: 6vw;
-  }
-}
-.about__title {
-  margin-bottom: 1rem;
-}
-@media (min-width: 768px) {
-  .about__title {
-    margin-bottom: 1.5rem;
-  }
-}
 .about .musican-profile {
   height: 50vw;
   max-height: 600px;
@@ -114,17 +106,9 @@
 }
 
 .photo-gallery {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
   background-color: #fafafa;
 }
-.photo-gallery__title {
-  margin-bottom: 1rem;
-}
 .photo-gallery .collection {
-  background-color: white;
   display: flex;
   flex-direction: column;
 }
@@ -143,11 +127,5 @@
   .photo-gallery .collection img {
     width: 30%;
     margin-bottom: 4%;
-  }
-}
-@media (min-width: 768px) {
-  .photo-gallery {
-    padding-left: 6vw;
-    padding-right: 6vw;
   }
 }/*# sourceMappingURL=bio.css.map */

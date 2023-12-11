@@ -2,8 +2,6 @@
 @use "./partials/mixins" as *;
 @use "./partials/fonts" as *;
 
-
-  
 * {
   padding: 0;
   margin: 0;
@@ -60,6 +58,23 @@ button {
     @include text-styles(14, 22, 400);
   }
 }
+main {
+  section {
+    @include hPadding(1rem, 1rem);
+    @include vPadding(1rem, 1rem);
+
+    @include tablet {
+      @include hPadding(6vw, 6vw);
+      @include vPadding(4rem, 1rem);
+    }
+    > h2 {
+      margin-bottom: 1rem;
+      @include tablet {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
 
 /* =================================================================*/
 
@@ -73,12 +88,12 @@ button {
   @include hPadding(0rem, 0rem);
   @include tablet {
     @include vPadding(0rem, 0rem);
-    @include hPadding(2rem, 0rem);
+    @include hPadding(3rem, 0rem);
     flex-direction: row;
   }
   .logo {
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: center;
     @include tablet {
       min-width: 120px;
@@ -91,21 +106,21 @@ button {
       display: flex;
       list-style-type: none;
       @include tablet {
-        gap: 2rem;
+        gap: 3em;
         align-items: center;
-        @include hPadding(2rem, 0rem);
+        @include hPadding(3rem, 0rem);
       }
     }
     &__item {
-      flex:1;
+      flex: 1;
       @include vPadding(1rem, 1rem);
       border-bottom: 2px solid transparent;
       @include tablet {
         @include vPadding(2rem, 2rem);
       }
-      a:hover{
+      a:hover {
         font-weight: 700;
-      }  
+      }
       &:hover {
         border-color: white;
       }
@@ -134,9 +149,9 @@ button {
       justify-content: space-between;
       gap: 3vw;
     }
-    .logo1{
+    .logo1 {
       display: none;
-      @include tablet{
+      @include tablet {
         display: flex;
         width: 150px;
         margin-left: auto;
@@ -174,7 +189,7 @@ button {
       @include vPadding(1rem, 1rem);
     }
   }
-  .logo2{
+  .logo2 {
     @include vPadding(1rem, 1rem);
   }
 }

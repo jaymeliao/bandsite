@@ -110,6 +110,29 @@ button {
   }
 }
 
+main section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  main section {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+  }
+}
+main section > h2 {
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  main section > h2 {
+    margin-bottom: 1.5rem;
+  }
+}
+
 /* =================================================================*/
 .header {
   background-color: #323232;
@@ -126,7 +149,7 @@ button {
   .header {
     padding-top: 0rem;
     padding-bottom: 0rem;
-    padding-left: 2rem;
+    padding-left: 3rem;
     padding-right: 0rem;
     flex-direction: row;
   }
@@ -149,9 +172,9 @@ button {
 }
 @media (min-width: 768px) {
   .header .nav__list {
-    gap: 2rem;
+    gap: 3em;
     align-items: center;
-    padding-left: 2rem;
+    padding-left: 3rem;
     padding-right: 0rem;
   }
 }

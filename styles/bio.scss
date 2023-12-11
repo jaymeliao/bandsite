@@ -12,29 +12,24 @@
     height: 600px;
   }
   .overlay-container {
-    @include hPadding(2rem, 2rem);
+    @include hPadding(1rem, 2rem);
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
+    @include tablet{
+      @include hPadding(2rem, 1rem);
+    }
   }
   &__title {
     color: $BandSite-White;
+    @include tablet{
+      @include hPadding(1rem, 1rem);
+    }
   }
 }
 
 .about {
-  @include hPadding(1rem, 1rem);
-  @include vPadding(1.5rem, 1rem);
-  @include tablet {
-    @include hPadding(6vw, 6vw);
-  }
-  &__title {
-    margin-bottom: 1rem;
-    @include tablet {
-      margin-bottom: 1.5rem;
-    }
-  }
   .musican-profile {
     height: 50vw;
     max-height: 600px;
@@ -78,14 +73,8 @@
 }
 
 .photo-gallery {
-  @include hPadding(1rem, 1rem);
-  @include vPadding(1.5rem, 1rem);
   background-color: $BandSite-Alabaster;
-  &__title {
-    margin-bottom: 1rem;
-  }
   .collection {
-    background-color: white;
     display: flex;
     flex-direction: column;
     &__picture {
@@ -104,8 +93,9 @@
       }
     }
   }
-  @include tablet {
-    @include hPadding(6vw, 6vw);
-  }
 }
 
+
+.comments{
+
+}
