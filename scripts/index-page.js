@@ -1,4 +1,5 @@
 const userComments = [
+  
   {
     author: "Connor Walton",
     date: "02/17/2021",
@@ -99,7 +100,7 @@ commentForm.addEventListener("submit", function (event) {
     return;
   }
 
-  userComments.push({ author: name, date, content: comment });
+  userComments.unshift({ author: name, date, content: comment });
 
   nameInput.value = "";
   commentInput.value = "";
