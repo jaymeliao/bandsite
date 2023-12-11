@@ -15,4 +15,7 @@
   font-family: "Avenir";
   src: url("../assets/Font/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../assets/Font/AvenirNextLTPro-Demi.woff") format("woff"), url("../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype");
   font-weight: 600; /* Assuming Demi is equivalent to 600 font weight */
+}
+.banner {
+  background-image: url("../assets/Images/hero-shows.jpg");
 }/*# sourceMappingURL=shows.css.map */

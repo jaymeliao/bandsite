@@ -4,34 +4,12 @@
 
 .banner {
   background-image: url("../assets/Images/hero-bio.jpg");
-  width: 100%;
-  height: 240px;
-  background-size: cover;
-  @include tablet {
-    height: 600px;
-  }
-  .overlay-container {
-    @include hPadding(1rem, 2rem);
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    @include tablet {
-      @include hPadding(2rem, 1rem);
-    }
-  }
-  &__title {
-    color: $BandSite-White;
-    @include tablet {
-      @include hPadding(1rem, 1rem);
-    }
-  }
 }
 
 .about {
   .musican-profile {
     height: 50vw;
-    max-height: 600px;
+    max-height: 700px;
     width: 100%;
     background-size: cover;
     @include tablet {

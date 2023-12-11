@@ -83,14 +83,11 @@ commentForm.addEventListener("submit", function (event) {
 
   userComments.push({ author: name, date, content: comment });
 
-  // Clear form inputs
   nameInput.value = "";
   commentInput.value = "";
 
-  // Render the updated comments
   renderComments();
   console.log(userComments);
 });
 
-// Initial rendering of existing comments
 renderComments();
