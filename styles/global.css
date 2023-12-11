@@ -110,6 +110,10 @@ button {
   }
 }
 
+ul, ol {
+  list-style: none;
+}
+
 main section {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -168,7 +172,6 @@ main section > h2 {
 }
 .header .nav__list {
   display: flex;
-  list-style-type: none;
 }
 @media (min-width: 768px) {
   .header .nav__list {

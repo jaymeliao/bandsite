@@ -94,20 +94,18 @@
   }
 }
 
-
-@mixin text-input-style(){
+@mixin text-input-style() {
   border-radius: 4px;
   padding: 0.75rem;
   font-size: 0.75rem;
   border: 1.5px solid $BandSite-Mercury;
   background-color: $BandSite-Alabaster;
-  &:focus{
+  &:focus {
     border: 1.5px solid $BandSite-Black;
     outline: none;
     background-color: $BandSite-White;
-
   }
-  @include tablet{
+  @include tablet {
     padding: 1rem;
     font-size: 1rem;
   }
@@ -115,62 +113,97 @@
 }
 
 .comments {
-
-  .user-comment{
+  .user-comment {
     display: flex;
     width: 100%;
     max-width: 700px;
     margin: auto;
+    .user-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      margin-right: 20px;
+      position: relative;
+      top: 30px;
+      object-fit: cover;
+    }
+    .comment-form {
+      width: 100%;
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label,
+      textarea,
+      input {
+        width: 100%;
+        display: block;
+      }
+      label {
+        color: $BandSite-Sliver;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      input {
+        @include text-input-style;
+        margin-bottom: 1.5rem;
+      }
+      textarea {
+        height: 150px;
+        resize: none; /* Disable textarea resizing */
+        @include text-input-style;
+      }
+      button {
+        background-color: $primary-color;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem;
+        color: white;
+        border: none;
+        cursor: pointer;
+        @include vMargin(1.5rem, 1.5rem);
+        @include tablet {
+          width: 250px;
+          align-self: flex-end;
+        }
+      }
+    }
   }
-  .user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    margin-right: 20px;
-    position: relative;
-    top:30px;
-    object-fit: cover; 
-  }
-  .comment-form {
+  .comments__list {
     width: 100%;
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    label,
-    textarea,
-    input {
-      width: 100%;
-      display: block;
-    }
-    label{
-      color: $BandSite-Sliver;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    input {
-      @include text-input-style;
-      margin-bottom: 1.5rem;
-    }
-    textarea {
-      height: 150px;
-      resize: none; /* Disable textarea resizing */
-      @include text-input-style;
-    }
-    button {
-      background-color: $primary-color;
-      border-radius: 4px;
-      width: 100%;
+    max-width: 770px;
+    margin: auto;
+    * {
       font-size: 1rem;
-      padding: 0.75rem;
-      color: white;
-      border: none;
-      cursor: pointer;
-      @include vMargin(1.5rem,1.5rem);
-      @include tablet {
-        width: 250px;
-        align-self: flex-end;
+      line-height: 1.5rem;
+    }
+    &__item {
+      display: flex;
+      @include vPadding(1.5rem,1.5rem);
+      border-bottom: 2px solid $BandSite-Mercury;
+      &:nth-child(1){
+        border-top: 2px solid $BandSite-Mercury;
+      }
+      .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        margin-right: 20px;
+        object-fit: cover;
+      }
+      .comment{
+        &__header{
+          display: flex;
+          justify-content: space-between;
+        }
+        &__username{
+          font-weight: 600;
+        }
+        &__timestamp{
+          color: $BandSite-Sliver;
+        }
       }
     }
   }
