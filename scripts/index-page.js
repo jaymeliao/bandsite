@@ -22,6 +22,19 @@ const userComments = [
 const commentForm = document.getElementById("commentForm");
 const commentsList = document.getElementById("commentsList");
 
+
+function getDynamicTimestamp(years, days, hours, minutes) {
+  if (years > 0) {
+      return `${years} year${years > 1 ? 's' : ''} ago`;
+  } else if (days > 0) {
+      return `${days} day${days > 1 ? 's' : ''} ago`;
+  } else if (hours > 0) {
+      return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+  } else {
+      return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+  }
+}
+
 // Function to render comments
 function renderComments() {
   commentsList.innerHTML = "";
@@ -47,7 +60,15 @@ function renderComments() {
 
     const timestamp = document.createElement("h3");
     timestamp.classList.add("comment__timestamp");
-    timestamp.textContent = new Date(comment.date).toLocaleDateString();
+    // timestamp.textContent = new Date(comment.date).toLocaleDateString();
+    const eventDate = new Date(comment.date);
+    const currentTime = new Date();
+    const timeDifference = currentTime - eventDate;
+    let minutes = Math.floor(timeDifference / (1000 * 60));
+    let hours = Math.floor(minutes / 60);
+    let days = Math.floor(hours / 24);
+    let years = Math.floor(days / 365);
+    timestamp.textContent =  getDynamicTimestamp(years, days, hours, minutes);
 
     const content = document.createElement("p");
     content.classList.add("comment__content");

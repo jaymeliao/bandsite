@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
 }
-.shows .timetable__body li > * {
+.shows .timetable__body li p {
   font-size: 1rem;
 }
 .shows .timetable__body li .event-date {
