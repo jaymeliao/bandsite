@@ -11,7 +11,6 @@
 
 <body>
   <header class="header">
-    
     <a class="logo" href="index.html"><img class="logo__image" src="./assets/Logo/Logo-bandsite.svg"></a>
     <nav class="nav">
       <ul class="nav__list">
@@ -76,22 +75,38 @@
         <img src="./assets/Images/Photo-gallery-9.jpg" alt="" class="collection__picture" />
       </div>
     </section>
-
-
-
-
     <section class="comments">
       <h2 class="comments__title"> Join the Conversation</h2>
+      <div class="user-comment">
+        <img class="user-avatar" src="./assets/Images/Mohan-muruge.jpg" alt="User Avatar">
+        <div class="comment-form">
+          <form method="post">
+            <label for="name">NAME</label>
+            <input type="text" id="name" placeholder="Enter your name" name="q" />
+            <label for="comment">COMMENT</label>
+            <textarea id="comment" name="comment" placeholder="Add a new comment"></textarea>
+
+            <button type="submit">COMMENT</button>
+          </form>
+        </div>
+      </div>
+
+      <ul class="comments__list">
+        <li class="comments__list__item">
+          <img class="user-avatar" src="./assets/Images/blank-profile.png" alt="User Avatar">
+          <div class="comment">
+            <div class="comment-header">
+              <h3 class="commender"> Conner Walton </h3>
+              <h3 class="timestamp"> 02/17/2021 </h3>
+            </div> 
+            <p class="comment-content">
+            </p>  
+          </div>     
+    
+        </li>
+      </ul>
+
     </section>
-
-
-
-
-
-
-
-
-
   </main>
   <footer class="footer">
     <div class="footer__row">
