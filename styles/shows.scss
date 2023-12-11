@@ -7,57 +7,53 @@
 }
 
 .shows {
-    display: flex;
-    flex-direction: column;
-    @include tablet{
-        flex-direction: row;
-        gap: 6vw;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    gap: 6vw;
+  }
+  .timetable {
+    @include tablet {
+      flex: 1;
     }
-    .timetable{
-        @include tablet{
-            flex:1;
+    &__header {
+      display: none;
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+        > * {
+          flex: 1;
         }
-        &__header{
+      }
+    }
+    &__body {
+      li {
+        border-bottom: 2px solid $BandSite-Mercury;
+        display: flex;
+        flex-direction: column;
+        p {
+          font-size: 1rem;
+        }
+        .event-date {
+          font-weight: 600;
+        }
+        .label {
+          margin-top: 1rem;
+        }
+
+        @include tablet {
+          > * {
+            flex: 1;
+          }
+          .label {
             display: none;
-            @include tablet{
-                display: flex;
-                justify-content: space-between;
-                > * {
-                    flex:1;
-                }
-            }
-
+          }
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
         }
-        &__body{
-        
-            li {
-                border-bottom: 2px solid $BandSite-Mercury; 
-                display:flex;
-                flex-direction: column;
-                p {
-                    font-size: 1rem;
-                }
-                .event-date{
-                    font-weight: 600;
-                }
-                .label{
-                    margin-top: 1rem;
-                }
-
-                @include tablet{
-                    > * {
-                        flex:1;
-                    }
-                    .label {
-                        display: none;
-                    }
-                    flex-direction:row;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-           
-            }
-        }
-    }    
-
+      }
+    }
+  }
 }
