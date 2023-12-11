@@ -18,4 +18,59 @@
 }
 .banner {
   background-image: url("../assets/Images/hero-shows.jpg");
+}
+
+.shows {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .shows {
+    flex-direction: row;
+    gap: 6vw;
+  }
+}
+@media (min-width: 768px) {
+  .shows .timetable {
+    flex: 1;
+  }
+}
+.shows .timetable__header {
+  display: none;
+}
+@media (min-width: 768px) {
+  .shows .timetable__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shows .timetable__header > * {
+    flex: 1;
+  }
+}
+.shows .timetable__body li {
+  border-bottom: 2px solid #e1e1e1;
+  display: flex;
+  flex-direction: column;
+}
+.shows .timetable__body li > * {
+  font-size: 1rem;
+}
+.shows .timetable__body li .event-date {
+  font-weight: 600;
+}
+.shows .timetable__body li .label {
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .shows .timetable__body li {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .shows .timetable__body li > * {
+    flex: 1;
+  }
+  .shows .timetable__body li .label {
+    display: none;
+  }
 }/*# sourceMappingURL=shows.css.map */

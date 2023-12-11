@@ -22,8 +22,6 @@ const userComments = [
 const commentForm = document.getElementById("commentForm");
 const commentsList = document.getElementById("commentsList");
 
-
-
 // Function to render comments
 function renderComments() {
   commentsList.innerHTML = "";
@@ -65,7 +63,6 @@ function renderComments() {
   });
 }
 
-
 commentForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const nameInput = document.getElementById("personName");
@@ -73,7 +70,7 @@ commentForm.addEventListener("submit", function (event) {
 
   const name = nameInput.value.trim();
   //const comment = commentInput.value.trim();
-  const comment = event.target.comment.value.trim();;
+  const comment = event.target.comment.value.trim();
   const date = new Date().toISOString();
 
   if (name === "" || comment === "") {
