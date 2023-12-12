@@ -144,6 +144,9 @@
   outline: none;
   background-color: #fff;
 }
+.comments .user-comment .comment-form input.input-error {
+  border: 1px solid red;
+}
 @media (min-width: 768px) {
   .comments .user-comment .comment-form input {
     padding: 1rem;
@@ -163,6 +166,9 @@
   border: 1.5px solid #000;
   outline: none;
   background-color: #fff;
+}
+.comments .user-comment .comment-form textarea.input-error {
+  border: 1px solid red;
 }
 @media (min-width: 768px) {
   .comments .user-comment .comment-form textarea {

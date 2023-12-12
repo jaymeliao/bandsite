@@ -95,10 +95,32 @@ commentForm.addEventListener("submit", function (event) {
   const comment = event.target.comment.value.trim();
   const date = new Date().toISOString();
 
-  if (name === "" || comment === "") {
-    alert("Name and comment cannot be empty.");
+  if (name === ""  && comment === "" ) {
+    alert("Name and Commnet cannot be empty.");
+    nameInput.classList.add("input-error");
+    commentInput.classList.add("input-error");
     return;
+  }else{
+    nameInput.classList.remove("input-error");
+    commentInput.classList.remove("input-error");
   }
+
+  if (name === "") {
+    alert("Name cannot be empty.");
+    nameInput.classList.add("input-error");
+    return;
+  }else{
+    nameInput.classList.remove("input-error");
+  }
+
+  if (comment === "" ) {
+    alert("Comment cannot be empty.");
+    commentInput.classList.add("input-error");
+    return;
+  }else{
+    commentInput.classList.remove("input-error");
+  }
+
 
   userComments.unshift({ author: name, date, content: comment });
 

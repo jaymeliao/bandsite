@@ -86,6 +86,9 @@ ul,
 ol {
   list-style: none;
 }
+
+
+
 main {
   section {
     @include hPadding(1rem, 1rem);

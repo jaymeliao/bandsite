@@ -83,6 +83,10 @@
     outline: none;
     background-color: $BandSite-White;
   }
+  &.input-error {
+    border: 1px solid red;
+  }
+
   @include tablet {
     padding: 1rem;
     font-size: 1rem;
