@@ -1,52 +1,31 @@
-const userComments = [
-  
-  {
-    author: "Connor Walton",
-    date: "02/17/2021",
-    content:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    author: "Emilie Beach",
-    date: "01/09/2021",
-    content:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    author: "Miles Acosta",
-    date: "12/20/2020",
-    content:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+import BandSiteAPI from "./band-site-api.js";
+const bandSiteAPI = new BandSiteAPI("jayme");
 
 const commentForm = document.getElementById("commentForm");
 const commentsList = document.getElementById("commentsList");
 
 
-function getDynamicTimestamp(years, days, hours, minutes) {
-  if (years > 0) {
-      return `${years} year${years > 1 ? 's' : ''} ago`;
-  } else if (days > 0) {
-      return `${days} day${days > 1 ? 's' : ''} ago`;
-  } else if (hours > 0) {
-      return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-  } else {
-      return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-  }
-}
+
 
 // Function to render comments
-function renderComments() {
+async function renderComments() {
   commentsList.innerHTML = "";
+  const userComments = await bandSiteAPI.getComment();
+  userComments.sort((a, b) => {
+    return b.timestamp - a.timestamp;
+  });
 
-  userComments.forEach((comment) => {
+  userComments.forEach(async (item) => {
+    const [randomProfileUrl] = await Promise.all([
+      bandSiteAPI.getRandomProfile(),
+    ]);
+
     const listItem = document.createElement("li");
     listItem.classList.add("comments__list__item");
-
     const avatar = document.createElement("img");
     avatar.classList.add("user-avatar");
-    avatar.src = "./assets/Images/blank-profile.png";
+
+    avatar.src = randomProfileUrl;
     avatar.alt = "User Avatar";
 
     const commentDiv = document.createElement("div");
@@ -57,23 +36,15 @@ function renderComments() {
 
     const username = document.createElement("h3");
     username.classList.add("comment__username");
-    username.textContent = comment.author;
+    username.textContent = item.name;
 
     const timestamp = document.createElement("h3");
     timestamp.classList.add("comment__timestamp");
-    // timestamp.textContent = new Date(comment.date).toLocaleDateString();
-    const eventDate = new Date(comment.date);
-    const currentTime = new Date();
-    const timeDifference = currentTime - eventDate;
-    let minutes = Math.floor(timeDifference / (1000 * 60));
-    let hours = Math.floor(minutes / 60);
-    let days = Math.floor(hours / 24);
-    let years = Math.floor(days / 365);
-    timestamp.textContent =  getDynamicTimestamp(years, days, hours, minutes);
+    timestamp.textContent = new Date(item.timestamp).toLocaleDateString();
 
     const content = document.createElement("p");
     content.classList.add("comment__content");
-    content.textContent = comment.content;
+    content.textContent = item.comment;
 
     headerDiv.appendChild(username);
     headerDiv.appendChild(timestamp);
@@ -85,50 +56,49 @@ function renderComments() {
   });
 }
 
-commentForm.addEventListener("submit", function (event) {
+commentForm.addEventListener("submit", async function (event) {
   event.preventDefault();
   const nameInput = document.getElementById("personName");
   const commentInput = document.getElementById("personComment");
 
-  const name = nameInput.value.trim();
-  //const comment = commentInput.value.trim();
-  const comment = event.target.comment.value.trim();
-  const date = new Date().toISOString();
+  const userName = nameInput.value.trim();
+  const commentContent = event.target.comment.value.trim();
+  const date = new Date().getTime();
 
-  if (name === ""  && comment === "" ) {
+  if (userName === "" && commentContent=== "") {
     alert("Name and Commnet cannot be empty.");
     nameInput.classList.add("input-error");
     commentInput.classList.add("input-error");
     return;
-  }else{
+  } else {
     nameInput.classList.remove("input-error");
     commentInput.classList.remove("input-error");
   }
 
-  if (name === "") {
+  if (userName === "") {
     alert("Name cannot be empty.");
     nameInput.classList.add("input-error");
     return;
-  }else{
+  } else {
     nameInput.classList.remove("input-error");
   }
 
-  if (comment === "" ) {
+  if (commentContent === "") {
     alert("Comment cannot be empty.");
     commentInput.classList.add("input-error");
     return;
-  }else{
+  } else {
     commentInput.classList.remove("input-error");
   }
+  const newComments = { name: userName, comment: commentContent };
 
 
-  userComments.unshift({ author: name, date, content: comment });
+  const response = await bandSiteAPI.postComment(newComments);
 
   nameInput.value = "";
   commentInput.value = "";
 
   renderComments();
-  console.log(userComments);
 });
 
 renderComments();

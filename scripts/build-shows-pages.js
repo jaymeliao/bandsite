@@ -1,41 +1,11 @@
-const venues = [
-    {
-        date: "Mon Sept 06 2021",
-        venueName: "Ronald Lane",
-        location: "San Francisco",
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venueName: "Pier 3 East",
-        location: "San Francisco",
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venueName: "View Lounge",
-        location: "San Francisco",
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venueName: "Hyatt Agency",
-        location: "San Francisco",
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venueName: "Moscow Center",
-        location: "San Francisco",
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venueName: "Press Club",
-        location: "San Francisco",
-    },
-];
-
+import BandSiteAPI from "./band-site-api.js";
+const bandSiteAPI = new BandSiteAPI("jayme");
 
 const timeTableList = document.querySelector("ul.timetable__body");
 
-function renderTimeTableList(){
+async function renderTimeTableList(){
     timeTableList.innerHTML="";
+    const venues = await bandSiteAPI.getShows();
     venues.forEach((venu)=>{
         const listItem = document.createElement("li")
 
@@ -45,7 +15,7 @@ function renderTimeTableList(){
 
         const dateValue = document.createElement('p');
         dateValue.classList.add("event-date");
-        dateValue.innerHTML=venu.date;
+        dateValue.innerHTML=new Date(venu.date).toLocaleDateString();;
 
         const venuHeading = document.createElement('h3');
         venuHeading.classList.add("label");
@@ -54,7 +24,7 @@ function renderTimeTableList(){
  
 
         const venuValue = document.createElement('p');
-        venuValue.innerHTML=venu.venueName;
+        venuValue.innerHTML=venu.place;
 
 
 
